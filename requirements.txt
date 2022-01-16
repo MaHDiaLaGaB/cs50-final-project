@@ -3,3 +3,5 @@ Flask-SQLAlchemy==2.5.1
 SQLite3==3.37.0
 goprocam==4.2.0
 requests==2.27.1
+opencv-python==4.5.5.62
+numpy==1.22.1
