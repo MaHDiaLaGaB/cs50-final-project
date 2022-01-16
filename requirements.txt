@@ -1,0 +1,5 @@
+Flask==2.0.2
+Flask-SQLAlchemy==2.5.1
+SQLite3==3.37.0
+goprocam==4.2.0
+requests==2.27.1
