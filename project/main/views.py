@@ -1,16 +1,18 @@
-import cv2
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, Response
 
 
 main = Blueprint('main', __name__)
+
 
 @main.route('/', methods=['GET'])
 def index():
     return render_template('index.html')
 
-@main.route('/signup', methods=['GET'])
+
+@main.route('/register', methods=['GET'])
 def signup():
-    return render_template('signup.html')
+    return render_template('register.html')
+
 
 @main.route('/login',methods=['GET'])
 def login():

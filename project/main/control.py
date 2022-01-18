@@ -1,5 +1,8 @@
-from flask import Blueprint
 import requests
+from goprocam import GoProCamera, constants
 
+gp = GoProCamera.GoPro()
+def stream():
+    stream = gp.gpControlCommand(param='')
+    return stream
 
-stream = requests.get('http://10.5.5.9/gp/gpControl/execute?p1=gpStream&c1=start')
