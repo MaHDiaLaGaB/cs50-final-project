@@ -1,9 +1,3 @@
-from distutils.command.config import config
-from distutils.debug import DEBUG
-from re import TEMPLATE
-from flask import Flask
-from numpy import testing
-
 
 from os import environ, path
 from dotenv import load_dotenv
@@ -27,5 +21,6 @@ class DevConfig(Config):
     FLASK_ENV = 'development'
     DEBUG = True
     TESTING = True
-    # SQLALCHEMY_DATABASE_URI = environ.get('SQLALCHEMY_DATABASE_URI')
-    # SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SQLALCHEMY_DATABASE_URI = environ.get('DATABASE_URI')
+    SQLALCHEMY_ECHO = True
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
