@@ -1,4 +1,5 @@
 from flask import Flask
+from .extentions import db
 
 #from .instance.config import Config
 
@@ -8,10 +9,8 @@ def create_app():
     app = Flask(__name__)
     
     app.config.from_object('config.DevConfig')
-    #app.config.from_pyfile('config.DevConfig')
-   
-
-
+    db.init_app(app)
+    
     from .main.views import main
 
     app.register_blueprint(main)
