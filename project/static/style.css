@@ -15,7 +15,8 @@
   }
   .signup-form{
     width:400px;
-    margin:100px auto;
+    height: auto;
+    margin:71px auto;
   }
   .signup-form form{
     color:#999;
@@ -56,9 +57,7 @@
 /*-------------------------------*/
 /*----- video player ------------*/
 
-.container{
-  background-color: burlywood;
-}
+
 
 .stream-player{
   height: 300px;
