@@ -6,34 +6,42 @@
 
 {% block main %}
 <div class="signup-form">
-    <form action="/register" method="post">
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div class="notification is-danger">
+      {{ messages[0] }} Go to <a href="{{ url_for('auth.login') }}">Login</a>
+    </div>
+  {% endif %}
+  {% endwith %}
+    <form id="register_form" action="/register" method="post">
       <h2>SignUp</h2>
       <hr>
       
       <div class="form-group">
-      <div class="row">
-        <div class="col">
-         <input class="form-control" name="first_name" type="text" placeholder="First Name" required>
-      </div>
-        
-      <div class="col">
-       <input class="form-control" name="last_name" type="text" placeholder="Last Name" required>
-      </div>
-      </div>
+        <div class="row">
+          <div class="col">
+            <input class="form-control" id="fname_in" name="first_name" type="text" placeholder="First Name" required>
+            <span class="error" id="fname-error-message"></span>
+          </div>
+          
+          <div class="col">
+            <input class="form-control" id="lname_in" name="last_name" type="text" placeholder="Last Name" required>
+            <span class="error" id="lname-error-message"></span>
+          </div>
         </div>
-      
-      <div class="form-group">
-        <input class="form-control" name="email" type="email" placeholder="Email" required>
       </div>
-      
       <div class="form-group">
-        <input class="form-control" name="password" type="password" placeholder="Password" required>
+        <input class="form-control" id="email_in" name="email" type="email" placeholder="Email" required>
+        <span class="error" id="email-error-message"></span>
       </div>
-      
       <div class="form-group">
-        <input class="form-control" type="password" placeholder="Confirm Password" required>
+        <input class="form-control" id="pass_in" name="password" type="password" placeholder="Password" required>
+        <span class="error" id="pass-error-message"></span>
       </div>
-      
+      <div class="form-group">
+        <input class="form-control" id="conf_pass_in" type="password" placeholder="Confirm Password" required>
+        <span class="error" id="confpass-error-message"></span>
+      </div>
       <div class="form-group">
         <label for="" class="form-check-label"><input type="checkbox">
         I accept the terms of use privacy policy</label>
@@ -47,4 +55,5 @@
       
     </form>
   </div>
+  <script src="/static/script.js"></script>
 {% endblock %}
