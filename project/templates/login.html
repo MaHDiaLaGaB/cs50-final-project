@@ -6,10 +6,16 @@
 
 {% block main %}
 <div class="signup-form">
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div class="notification is-danger">
+        {{ messages[0] }} Go to <a href="{{ url_for('auth.login') }}">Login</a>
+      </div>
+    {% endif %}
+  {% endwith %}
     <form action="/login" method="get">
       <h2>Log In</h2>
       <hr>
-      
         <div class="form-group">
             <div class="row">
             </div>
