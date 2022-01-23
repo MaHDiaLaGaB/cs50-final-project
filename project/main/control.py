@@ -1,8 +1,9 @@
-import requests
-from goprocam import GoProCamera, constants
+import bcrypt
 
-gp = GoProCamera.GoPro()
-def stream():
-    stream = gp.gpControlCommand(param='')
-    return stream
 
+
+def hash_password(password):
+    salt = bcrypt.gensalt(rounds=15)
+    password = password.encode('utf_8')
+    hashed = bcrypt.hashpw(password, salt)
+    return hashed
