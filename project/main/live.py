@@ -1,21 +1,28 @@
-# import cv2
-# import requests
-# from goprocam import GoProCamera, constants
-
-# requests.get('http://10.5.5.9/gp/gpControl/execute?p1=gpStream&c1=start')
+import cv2
+from goprocam import GoProCamera, constants
 
 
-# class LiveStreaming(object):
-#     def __init__(self):
+class VideoStreaming(object):
 
-#         self.camera = cv2.VideoCapture()
+    def __init__(self):
 
-#     def __del__(self):
-#         self.camera.release()
+        self.go_pro = GoProCamera.GoPro()
+        self.go_pro.livestream('start')
+        self.cap = cv2.VideoCapture("udp://10.5.5.9:8554", cv2.CAP_FFMPEG)
 
-#     def gen_frames(self):
+    def set_camera(self):
 
-#         ret, frame = self.camera.read()
-#         ret, buffer = cv2.imencode('jpg', frame)
-#         frame = buffer.tobytes()
-#         return frame
+        self.go_pro.video_settings(res='1080p', fps='60')
+        self.go_pro.gpControlSet(constants.Stream.WINDOW_SIZE,
+                                 constants.Stream.WindowSize.R720)
+
+    def gen_frame(self):
+
+        ret, frame = self.cap.read()
+        ret, buffer = cv2.imencode('.jpg', frame)
+        return buffer.tobytes()
+
+    def __del__(self):
+
+        self.cap.release()
+        cv2.destroyAllWindows()
