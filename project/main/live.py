@@ -18,8 +18,10 @@ class VideoStreaming(object):
 
     def gen_frame(self):
 
+        self.cap.set(3, 1920)
+        self.cap.set(4, 1080)
         ret, frame = self.cap.read()
-        ret, buffer = cv2.imencode('.jpg', frame)
+        ret, buffer = cv2.imencode('image.jpg', frame)
         return buffer.tobytes()
 
     def __del__(self):

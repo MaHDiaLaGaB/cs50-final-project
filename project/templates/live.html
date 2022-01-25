@@ -6,19 +6,21 @@ Log In
 
 {% block main %}
 <section id="live-section">
-    <div class="container px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5">
-            <div class="col-lg-6">
-                <h1 class="mt-5">The Big Picture</h1>
-                <img src="{{ url_for('video_feed') }}" alt="" sizes="" srcset="">
+    <div class="container-fluid">
+        <div class="head">
+            <h1>welcome</h1>
+        </div>
+        <div class="video-player">
+            <div class="player">
+                <iframe src="" frameborder="0"></iframe>
             </div>
-            <div class="col-lg-6">
-                <h1 class="mt-5">The Big Picture</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt voluptates rerum eveniet sapiente
-                    repellat esse, doloremque quod recusandae deleniti nostrum assumenda vel beatae sed aut modi
-                    nesciunt porro quisquam voluptatem.</p>
+        </div>
+        <div class="control-panel">
+            <div class="d-flex justify-content-evenly">
+                <button>play</button>
+                <button>stop</button>
+                <button>share</button>
             </div>
-
         </div>
     </div>
 </section>
