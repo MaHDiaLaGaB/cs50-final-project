@@ -1,4 +1,6 @@
 import cv2
+from time import time
+import socket
 from goprocam import GoProCamera, constants
 
 
@@ -28,3 +30,15 @@ class VideoStreaming(object):
 
         self.cap.release()
         cv2.destroyAllWindows()
+
+
+def stream(cam):
+    live_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    t = time()
+    while True:
+        frame = cam.gen_frame()
+        if time() - t >= 2.5:
+            live_socket.sendto(
+                "_GPHD_:0:0:2:0.000000\n".encode(), ("10.5.5.9", 8554))
+            t = time()
+        yield (b'--frame\r\n'b'Content-Type: image/jpg\r\n\r\n' + frame + b'\r\n\r\n')

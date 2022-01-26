@@ -1,7 +1,6 @@
 import bcrypt
 
 
-
 def hash_password(password):
     salt = bcrypt.gensalt(rounds=15)
     password = password.encode('utf_8')

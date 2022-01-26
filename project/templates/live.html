@@ -12,14 +12,15 @@ Log In
         </div>
         <div class="video-player">
             <div class="player">
-                <iframe src="" frameborder="0"></iframe>
+                <iframe src="{{url_for('main.video_feed')}}" frameborder="0"></iframe>
             </div>
         </div>
         <div class="control-panel">
             <div class="d-flex justify-content-evenly">
-                <button>play</button>
-                <button>stop</button>
-                <button>share</button>
+                <form action="" method="post">
+                    <input type="submit" value="Start/Stop">
+
+                </form>
             </div>
         </div>
     </div>
