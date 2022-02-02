@@ -5,24 +5,23 @@ Log In
 {% endblock %}
 
 {% block main %}
-<section id="live-section">
-    <div class="container-fluid">
-        <div class="head">
-            <h1>welcome</h1>
-        </div>
-        <div class="video-player">
-            <div class="player">
-                <iframe src="{{url_for('main.video_feed')}}" frameborder="0"></iframe>
+<div class="container py-4">
+    <div class="p-5 mb-4 bg-light rounded-3 bg-dark">
+        <div id="video-heading" class="container-fluid py-5">
+            <h2>Video Player</h2>
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="{{url_for('main.video_feed')}}"></iframe>
             </div>
-        </div>
-        <div class="control-panel">
-            <div class="d-flex justify-content-evenly">
-                <form action="" method="post">
-                    <input type="submit" value="Start/Stop">
-
+            <div class="d-flex justify-content-center">
+                <form class="player-buttons" method="post" action="{{url_for('main.settings')}}">
+                    <input class="btn btn-outline-danger" type="submit" value="Stop/Start" name="stop" />
+                    <input class="btn btn-outline-warning" type="submit" value="Photo" name="photo" />
+                    <input class="btn btn-outline-warning" type="submit" value="Video" name="video" />
+                    <input class="btn btn-outline-warning" type="submit" value="Super View" name="super" />
                 </form>
             </div>
         </div>
     </div>
-</section>
+</div>
+
 {% endblock %}

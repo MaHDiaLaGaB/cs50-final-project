@@ -1,10 +1,10 @@
-html, bady{
+/* html, bady{
   position: relative;
   min-height: 100%;
   margin: 0;
   padding: 0;
   
-}
+} */
 /* sginup and login form*/
 .form-control{
     height:41px;
@@ -75,25 +75,22 @@ html, bady{
 /*-------------------------------*/
 /*----- video player ------------*/
 
-#live-section{
-  height: 100%;
+.player-buttons{
+  margin: 15px;
 }
-iframe{
-  max-width: 100%;
-  height: auto;
+.player-buttons input{
+  margin: 8px;
 }
+
+#video-heading h2{
+  color: #f1f1f1;
+}
+
 
 /*------------------------------*/
 /*----------footer--------------*/
-footer {
-  background-color: orange;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 80px;
-  width: 100%;
-  overflow: hidden;
+#footer-text p{
+  color: #f1f1f1;
 }
-
 
 

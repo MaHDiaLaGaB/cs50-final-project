@@ -9,6 +9,10 @@ class VideoStreaming(object):
     def __init__(self):
 
         self.go_pro = GoProCamera.GoPro()
+        self.cap = None
+
+    def start(self):
+
         self.go_pro.livestream('start')
         self.cap = cv2.VideoCapture("udp://10.5.5.9:8554", cv2.CAP_FFMPEG)
 
@@ -20,16 +24,31 @@ class VideoStreaming(object):
 
     def gen_frame(self):
 
+        if self.cap is None:
+            print('you should call start first')
+
         self.cap.set(3, 1920)
         self.cap.set(4, 1080)
         ret, frame = self.cap.read()
         ret, buffer = cv2.imencode('image.jpg', frame)
         return buffer.tobytes()
 
-    def __del__(self):
+    def photo_mode(self):
+        return(self.go_pro.take_photo())
 
-        self.cap.release()
-        cv2.destroyAllWindows()
+    def mode_video(self):
+        return(self.go_pro.mode('0', submode='0'))
+
+    def __del__(self):
+        if self.cap is None:
+            print('no camera to stop')
+
+        try:
+            self.go_pro.livestream('stop')
+            self.cap.release()
+        except:
+            print('no stream to release')
+        # cv2.destroyAllWindows()
 
 
 def stream(cam):
