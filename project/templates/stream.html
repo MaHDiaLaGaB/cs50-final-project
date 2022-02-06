@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Video Player
+{% endblock %}
+
+{% block main %}
+<div class="container py-4">
+    <div class="p-5 mb-4 bg-light rounded-3 bg-dark">
+        <div id="video-heading" class="container-fluid py-5">
+            <h2>Video Player</h2>
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe id class="embed-responsive-item" src="{{url_for('main.videoFeed')}}"></iframe>
+            </div>
+            <div class="d-flex justify-content-center">
+                <form method="post" action="{{url_for('main.videoFeed')}}">
+                    <input type="submit" name="start" value="Start">
+                    <input type="submit" name="stop" value="Stop">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

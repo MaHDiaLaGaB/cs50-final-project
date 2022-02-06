@@ -1,5 +1,5 @@
 import cv2
-from time import time
+from time import sleep, time
 import socket
 from goprocam import GoProCamera, constants
 
@@ -13,14 +13,14 @@ class VideoStreaming(object):
 
     def start(self):
 
+        self.go_pro.video_settings(res='1080p', fps='60')
+        self.go_pro.gpControlSet(constants.Stream.WINDOW_SIZE,
+                                 constants.Stream.WindowSize.R720)
         self.go_pro.livestream('start')
         self.cap = cv2.VideoCapture("udp://10.5.5.9:8554", cv2.CAP_FFMPEG)
 
     def set_camera(self):
-
-        self.go_pro.video_settings(res='1080p', fps='60')
-        self.go_pro.gpControlSet(constants.Stream.WINDOW_SIZE,
-                                 constants.Stream.WindowSize.R720)
+        pass
 
     def gen_frame(self):
 
@@ -33,11 +33,60 @@ class VideoStreaming(object):
         ret, buffer = cv2.imencode('image.jpg', frame)
         return buffer.tobytes()
 
-    def photo_mode(self):
-        return(self.go_pro.take_photo())
+    def shutter_on(self):
+        self.go_pro.shutter('1')
+        sleep(0.5)
 
-    def mode_video(self):
-        return(self.go_pro.mode('0', submode='0'))
+    def shutter_off(self):
+        self.go_pro.shutter('0')
+        sleep(0.5)
+
+    def photo_mode(self):
+        self.go_pro.mode(mode=constants.Mode.PhotoMode, submode='0')
+        sleep(0.5)
+
+    def video_mode(self):
+        self.go_pro.mode(mode=constants.Mode.VideoMode, submode='0')
+        sleep(0.5)
+
+    def res_5k(self):
+        self.go_pro.gpControlSet(
+            param=constants.Video.RESOLUTION, value=constants.Video.Resolution.R5K)
+
+    def res_4k(self):
+        self.go_pro.gpControlSet(
+            param=constants.Video.RESOLUTION, value='1')
+
+    def res_2k(self):
+        self.go_pro.gpControlSet(
+            param=constants.Video.RESOLUTION, value=constants.Video.Resolution.R2k)
+
+    def res_1080p(self):
+        self.go_pro.gpControlSet(
+            param=constants.Video.RESOLUTION, value='9')
+
+    def fps_240(self):
+        self.go_pro.gpControlSet(
+            param=constants.Video.FRAME_RATE, value=constants.Video.FrameRate.FR240)
+
+    def fps_120(self):
+        self.go_pro.gpControlSet(
+            param=constants.Video.FRAME_RATE, value=constants.Video.FrameRate.FR120)
+
+    def fps_60(self):
+        self.go_pro.gpControlSet(
+            param=constants.Video.FRAME_RATE, value=constants.Video.FrameRate.FR60)
+
+    def fps_30(self):
+        self.go_pro.gpControlSet(
+            param=constants.Video.FRAME_RATE, value=constants.Video.FrameRate.FR30)
+
+    def fps_24(self):
+        self.go_pro.gpControlSet(
+            param=constants.Video.FRAME_RATE, value=constants.Video.FrameRate.FR24)
+
+    def change_mode(self):
+        pass
 
     def __del__(self):
         if self.cap is None:

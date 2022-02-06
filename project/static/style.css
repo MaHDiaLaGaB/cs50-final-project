@@ -1,10 +1,7 @@
-/* html, bady{
-  position: relative;
-  min-height: 100%;
-  margin: 0;
-  padding: 0;
+bady{
+  margin-bottom: 50px;
   
-} */
+} 
 /* sginup and login form*/
 .form-control{
     height:41px;
@@ -75,22 +72,44 @@
 /*-------------------------------*/
 /*----- video player ------------*/
 
-.player-buttons{
-  margin: 15px;
-}
-.player-buttons input{
-  margin: 8px;
+#heading-1 h3{
+  color: #f1f1f1;
+  margin-bottom: 100px;
+
 }
 
-#video-heading h2{
-  color: #f1f1f1;
+#heading-1 h3 a{
+  text-decoration: none;
 }
+
+.btn{
+  margin: 4px;
+  padding: auto;
+  width: 100px;
+}
+
 
 
 /*------------------------------*/
 /*----------footer--------------*/
 #footer-text p{
   color: #f1f1f1;
+  
 }
+
+#footer {
+  position: fixed;
+  height: 50px;
+  /* background-color: red; */
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-bottom: 0px;
+}
+
+/*-----------------------------*/
+/*--------- buttons -----------*/
+
+
 
 
