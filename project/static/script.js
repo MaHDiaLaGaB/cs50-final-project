@@ -138,24 +138,25 @@ function buttonFunction(id) {
   //document.getElementById("ID").innerHTML = response;
 }
 
-var disableButton5k = (e) => {
-  console.log("it happen");
-  $('#240fps').prop('disabled', true);
-  $('#120fps').prop('disabled', true);
-  $('#60fps').prop('disabled', true);
-};
+// var disableButton5k = (e) => {
+//   console.log("it happen");
+//   $('#240fps').prop('disabled', true);
+//   $('#240fps').toggleClass('btn btn-secondary');
+//   //$('#120fps').prop('disabled', true);
+//   //$('#60fps').prop('disabled', true);
+// };
 
-var disableButton4k = (e) => {
-  console.log("va");
-  $('#240fps').prop('disabled', true);
-  $('#120fps').prop('disabled', true);
-};
+// var disableButton4k = (e) => {
+//   console.log("va");
+//   $('#240fps').prop('disabled', true);
+//   $('#120fps').prop('disabled', true);
+// };
 
-var disableButton2k = (e) => {
-  $('#240fps').prop('disabled', true);
-  $('#24fps').prop('disabled', true);
-  $('#30fps').prop('disabled', true);
-};
+// var disableButton2k = (e) => {
+//   $('#240fps').prop('disabled', true);
+//   $('#24fps').prop('disabled', true);
+//   $('#30fps').prop('disabled', true);
+// };
 
-$(document).on('click', '5k', disableButton5k);
+// $(document).on('click', '5k', disableButton5k);
 

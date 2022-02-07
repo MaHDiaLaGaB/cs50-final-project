@@ -49,41 +49,16 @@ class VideoStreaming(object):
         self.go_pro.mode(mode=constants.Mode.VideoMode, submode='0')
         sleep(0.5)
 
-    def res_5k(self):
+    def resolution(self, res):
         self.go_pro.gpControlSet(
-            param=constants.Video.RESOLUTION, value=constants.Video.Resolution.R5K)
+            param=constants.Video.RESOLUTION, value=res)
 
-    def res_4k(self):
+    def fps_rate(self, fps):
         self.go_pro.gpControlSet(
-            param=constants.Video.RESOLUTION, value='1')
+            param=constants.Video.FRAME_RATE, value=fps)
 
-    def res_2k(self):
-        self.go_pro.gpControlSet(
-            param=constants.Video.RESOLUTION, value=constants.Video.Resolution.R2k)
-
-    def res_1080p(self):
-        self.go_pro.gpControlSet(
-            param=constants.Video.RESOLUTION, value='9')
-
-    def fps_240(self):
-        self.go_pro.gpControlSet(
-            param=constants.Video.FRAME_RATE, value=constants.Video.FrameRate.FR240)
-
-    def fps_120(self):
-        self.go_pro.gpControlSet(
-            param=constants.Video.FRAME_RATE, value=constants.Video.FrameRate.FR120)
-
-    def fps_60(self):
-        self.go_pro.gpControlSet(
-            param=constants.Video.FRAME_RATE, value=constants.Video.FrameRate.FR60)
-
-    def fps_30(self):
-        self.go_pro.gpControlSet(
-            param=constants.Video.FRAME_RATE, value=constants.Video.FrameRate.FR30)
-
-    def fps_24(self):
-        self.go_pro.gpControlSet(
-            param=constants.Video.FRAME_RATE, value=constants.Video.FrameRate.FR24)
+    def fov(self):
+        self.go_pro.gpControlSet(param=constants.Video.LENS, value='Wide')
 
     def change_mode(self):
         pass

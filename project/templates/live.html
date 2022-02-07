@@ -9,7 +9,7 @@ Go Live!
     <div class="p-5 mb-4 bg-light rounded-3 bg-dark">
         <div class="container-fluid py-5">
             <div id="heading-1" class="d-flex justify-content-center">
-                <h3>You wanna Stream live? <a href="{{url_for('main.stream')}}">Click Here</a></h3>
+                <h3>You wanna Stream live? <a href="{{url_for('main.videoPlayer')}}">Click Here</a></h3>
             </div>
 
             <!-- <h2>Video Player</h2>
@@ -35,6 +35,14 @@ Go Live!
             <div id="buttons-flex" class="d-flex justify-content-center">
                 {% for label, setting in camera_settings.items() %}
                 <button onclick="buttonFunction(id='{{ setting }}')" class="btn btn-primary" id="{{ setting }}">
+                    {{ label }}
+                </button>
+                {% endfor %}
+            </div>
+            <br>
+            <div id="buttons-flex" class="d-flex justify-content-center">
+                {% for label, lince in linces.items() %}
+                <button onclick="buttonFunction(id='{{ lince }}')" class="btn btn-primary" id="{{ lince }}">
                     {{ label }}
                 </button>
                 {% endfor %}
