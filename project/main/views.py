@@ -7,16 +7,6 @@ from .live import VideoStreaming, stream
 main = Blueprint('main', __name__)
 
 
-#START, STOP, PHOTO,TAKE_PHOTO, VIDEO, DOWNLOAD = "start", "stop", "photo", "video", "download"
-# CAMERA_CONTROL = {
-#     'Start': START,  # shutter on
-#     'Stop': STOP,  # shutter off
-#     'Photo': PHOTO,  # photo mode
-#     'TakePhoto': TAKE_PHOTO,
-#     'Video': VIDEO,  # video mode
-#     'Download': DOWNLOAD  # downlaod media
-# }
-
 CAMERA_CONTROL = {
     'Start': "start",  # shutter on
     'Stop': "stop",  # shutter off
@@ -26,8 +16,6 @@ CAMERA_CONTROL = {
     'Download': "download"  # downlaod media
 }
 
-
-FIVE_K, FOUR_K, TWO_K, FULL_HD = "5k", "4k", "2k", "1080p"
 CAMERA_SETTINGS = {
     '5K': '24',
     '4K': '1',
@@ -35,7 +23,6 @@ CAMERA_SETTINGS = {
     '1080p': '9'
 }
 
-#FR240, FR120, FR60, FR30, FR24 = "240fps", "120fps", "60fps", "30fps", "24fps"
 CAMERA_FRAMES = {
     '240FPS': '0',
     '120FPS': '1',
@@ -44,13 +31,11 @@ CAMERA_FRAMES = {
     '24FPS': '10'
 }
 
-WIDE, NARROW, SUPERVIEW, LINEAR_HL,  = "wide", "narrow", "superView", "linear_hl"
 CAMERA_LINCE = {
     'Wide': '0',
     'Narrow': '6',
     'SuperView': '3',
     'Linear_HL': '8',  # horizon level
-
 }
 
 
@@ -77,19 +62,6 @@ def set_mode(value):
         stop=cam.shutter_off
     )
     settings[value]()
-# @main.route('/live/<ID>')
-# @login_required
-# def settings(ID):
-#     cam = VideoStreaming()
-
-    # if ID == PHOTO:
-    #     cam.photo_mode()
-    # elif ID == VIDEO:
-    #     cam.video_mode()
-    # elif ID == START:
-    #     cam.shutter_on()
-    # elif ID == STOP:
-    #     cam.shutter_off()
 
 
 @main.route('/live/resolution/<value>')
@@ -111,14 +83,6 @@ def set_fps(value):
 def set_fov(value):
     cam = VideoStreaming()
     cam.fov(value)
-
-    # if ID in CAMERA_SETTINGS:
-    #     cam.resolution(ID)
-    # elif CAMERA_FRAMES:
-    #     cam.fps_rate(ID)
-    # elif ID:
-    #     cam.fov(ID)
-    # return None
 
 
 @main.route('/videoPlayer/videofeed')
