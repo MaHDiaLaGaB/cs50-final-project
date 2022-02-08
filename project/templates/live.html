@@ -18,7 +18,7 @@ Go Live!
             </div> -->
             <div id="buttons-flex" class="d-flex justify-content-center">
                 {% for label, control in controls.items() %}
-                <button onclick="buttonFunction(id='{{ control }}')" class="btn btn-primary">
+                <button onclick="setMode(value='{{ control }}')" class="btn btn-primary">
                     {{ label }}
                 </button>
                 {% endfor %}
@@ -26,7 +26,7 @@ Go Live!
             <br>
             <div id="buttons-flex" class="d-flex justify-content-center">
                 {% for label, frame in frams.items() %}
-                <button onclick="buttonFunction(id='{{ frame }}')" class="btn btn-primary" id="{{ frame }}">
+                <button onclick="setFps(value='{{ frame }}')" class="btn btn-primary" id="{{ frame }}">
                     {{ label }}
                 </button>
                 {% endfor %}
@@ -34,7 +34,7 @@ Go Live!
             <br>
             <div id="buttons-flex" class="d-flex justify-content-center">
                 {% for label, setting in camera_settings.items() %}
-                <button onclick="buttonFunction(id='{{ setting }}')" class="btn btn-primary" id="{{ setting }}">
+                <button onclick="setResolution(value='{{ setting }}')" class="btn btn-primary" id="{{ setting }}">
                     {{ label }}
                 </button>
                 {% endfor %}
@@ -42,7 +42,7 @@ Go Live!
             <br>
             <div id="buttons-flex" class="d-flex justify-content-center">
                 {% for label, lince in linces.items() %}
-                <button onclick="buttonFunction(id='{{ lince }}')" class="btn btn-primary" id="{{ lince }}">
+                <button onclick="setFov(value='{{ lince }}')" class="btn btn-primary" id="{{ lince }}">
                     {{ label }}
                 </button>
                 {% endfor %}

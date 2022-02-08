@@ -13,6 +13,7 @@ class VideoStreaming(object):
 
     def start(self):
 
+        self.go_pro.mode(mode=constants.Mode.VideoMode, submode='0')
         self.go_pro.video_settings(res='1080p', fps='60')
         self.go_pro.gpControlSet(constants.Stream.WINDOW_SIZE,
                                  constants.Stream.WindowSize.R720)
@@ -31,7 +32,12 @@ class VideoStreaming(object):
         self.cap.set(4, 1080)
         ret, frame = self.cap.read()
         ret, buffer = cv2.imencode('image.jpg', frame)
+        print(frame.shape)
         return buffer.tobytes()
+
+    def take_photo(self):
+        self.go_pro.take_photo(2)
+        sleep(0.5)
 
     def shutter_on(self):
         self.go_pro.shutter('1')
@@ -50,15 +56,13 @@ class VideoStreaming(object):
         sleep(0.5)
 
     def resolution(self, res):
-        self.go_pro.gpControlSet(
-            param=constants.Video.RESOLUTION, value=res)
+        self.go_pro.gpControlSet(param='2', value=res)
 
     def fps_rate(self, fps):
-        self.go_pro.gpControlSet(
-            param=constants.Video.FRAME_RATE, value=fps)
+        self.go_pro.gpControlSet(param='3', value=fps)
 
-    def fov(self):
-        self.go_pro.gpControlSet(param=constants.Video.LENS, value='Wide')
+    def fov(self, lince):
+        self.go_pro.gpControlSet(param='121', value=lince)
 
     def change_mode(self):
         pass
