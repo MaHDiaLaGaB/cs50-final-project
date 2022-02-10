@@ -41,7 +41,7 @@ class VideoStreaming(object):
         self.cap.set(3, width)
         self.cap.set(4, height)
 
-    def get_dimension(self, res='1080p'):
+    def get_dimension(self, res):
         # if res in the argument was empty or not accutare line 46 will work
         width, height = FRAME_DIMENSION["480p"]
         if res in FRAME_DIMENSION:
@@ -58,7 +58,9 @@ class VideoStreaming(object):
         return VIDEO_TYPE['avi']
 
     def start_record(self):
-        self.out = cv2.VideoWriter()  # <---- i need to finish this tomorrow
+        self.out = cv2.VideoWriter('test-video.avi', self.get_video_type(
+        ), 25, self.get_dimension('1080p'))
+
     # recording functions end here ------>
 
     def gen_frame(self):
@@ -69,10 +71,15 @@ class VideoStreaming(object):
         self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
         self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
         ret, frame = self.cap.read()
+        rec_frame = frame
         #frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         ret, buffer = cv2.imencode('image.jpg', frame)
         # print(frame.shape)
-        return buffer.tobytes()
+        return (buffer.tobytes(), rec_frame)
+
+    def record(self):
+        while True:
+            self.start_record().write(self.gen_frame()[1])
 
     def take_photo(self):
         self.go_pro.take_photo(2)
@@ -122,7 +129,7 @@ def stream(cam):
     live_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     t = time()
     while True:
-        frame = cam.gen_frame()
+        frame = cam.gen_frame()[0]
         if time() - t >= 2.5:
             live_socket.sendto(
                 "_GPHD_:0:0:2:0.000000\n".encode(), ("10.5.5.9", 8554))

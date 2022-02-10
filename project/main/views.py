@@ -2,7 +2,7 @@ from crypt import methods
 from flask import Blueprint, render_template, request, Response
 from flask_login import login_required
 from .live import VideoStreaming, stream
-
+from threading import Thread
 
 main = Blueprint('main', __name__)
 
@@ -102,4 +102,8 @@ def videoPlayer():
             cam.start()
         elif request.form.get('stop') == 'Stop':
             del cam
+        elif request.form.get('record') == 'Record':
+            cam.record()
+            thread = Thread(target=cam.record)
+            thread.start()
     return render_template('videoPlayer.html')
