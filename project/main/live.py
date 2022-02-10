@@ -59,7 +59,7 @@ class VideoStreaming(object):
 
     def start_record(self):
         self.out = cv2.VideoWriter('test-video.avi', self.get_video_type(
-        ), 25, self.get_dimension('1080p'))
+        ), 25, (600, 400))
 
     # recording functions end here ------>
 
@@ -68,8 +68,8 @@ class VideoStreaming(object):
         if self.cap is None:
             print('you should call start first')
 
-        self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
-        self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
+        # self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
+        # self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
         ret, frame = self.cap.read()
         rec_frame = frame
         #frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -77,9 +77,14 @@ class VideoStreaming(object):
         # print(frame.shape)
         return (buffer.tobytes(), rec_frame)
 
+    # --- recording function ----
+
     def record(self):
+
         while True:
             self.start_record().write(self.gen_frame()[1])
+
+    # --- controling camera functions ----
 
     def take_photo(self):
         self.go_pro.take_photo(2)
@@ -109,9 +114,6 @@ class VideoStreaming(object):
 
     def fov(self, lince):
         self.go_pro.gpControlSet(param='121', value=lince)
-
-    def change_mode(self):
-        pass
 
     def __del__(self):
         if self.cap is None:

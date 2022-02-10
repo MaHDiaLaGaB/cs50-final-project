@@ -16,37 +16,50 @@ Go Live!
             <div class="embed-responsive embed-responsive-16by9">
                 <iframe id class="embed-responsive-item" src="{{url_for('main.videoFeed', ID=start)}}"></iframe>
             </div> -->
-            <div id="buttons-flex" class="d-flex justify-content-center">
-                {% for label, control in controls.items() %}
-                <button onclick="setMode(value='{{ control }}')" class="btn btn-primary">
-                    {{ label }}
-                </button>
-                {% endfor %}
-            </div>
+            <fieldset>
+                <h2>Action</h2>
+                <div id="buttons-flex" class="d-flex justify-content-center">
+                    {% for label, control in controls.items() %}
+                    <button onclick="setMode(value='{{ control }}')" class="btn btn-primary">
+                        {{ label }}
+                    </button>
+                    {% endfor %}
+                </div>
+            </fieldset>
+
             <br>
-            <div id="buttons-flex" class="d-flex justify-content-center">
-                {% for label, frame in frams.items() %}
-                <button onclick="setFps(value='{{ frame }}')" class="btn btn-primary" id="{{ frame }}">
-                    {{ label }}
-                </button>
-                {% endfor %}
-            </div>
+            <fieldset>
+                <div id="buttons-flex" class="d-flex justify-content-center">
+                    {% for label, frame in frams.items() %}
+                    <button onclick="setFps(value='{{ frame }}')" class="btn btn-primary" id="{{ frame }}">
+                        {{ label }}
+                    </button>
+                    {% endfor %}
+                </div>
+            </fieldset>
+
             <br>
-            <div id="buttons-flex" class="d-flex justify-content-center">
-                {% for label, setting in camera_settings.items() %}
-                <button onclick="setResolution(value='{{ setting }}')" class="btn btn-primary" id="{{ setting }}">
-                    {{ label }}
-                </button>
-                {% endfor %}
-            </div>
+            <fieldset>
+                <div id="buttons-flex" class="d-flex justify-content-center">
+                    {% for label, setting in camera_settings.items() %}
+                    <button onclick="setResolution(value='{{ setting }}')" class="btn btn-primary" id="{{ setting }}">
+                        {{ label }}
+                    </button>
+                    {% endfor %}
+                </div>
+            </fieldset>
+
             <br>
-            <div id="buttons-flex" class="d-flex justify-content-center">
-                {% for label, lince in linces.items() %}
-                <button onclick="setFov(value='{{ lince }}')" class="btn btn-primary" id="{{ lince }}">
-                    {{ label }}
-                </button>
-                {% endfor %}
-            </div>
+            <fieldset>
+                <div id="buttons-flex" class="d-flex justify-content-center">
+                    {% for label, lince in linces.items() %}
+                    <button onclick="setFov(value='{{ lince }}')" class="btn btn-primary" id="{{ lince }}">
+                        {{ label }}
+                    </button>
+                    {% endfor %}
+                </div>
+            </fieldset>
+
         </div>
     </div>
 </div>

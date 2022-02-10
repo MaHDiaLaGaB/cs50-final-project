@@ -4,7 +4,12 @@
 
 ### My motivation
 
-This is final project for CS50 Harvard online program after nine weeks studying hard bitween learning the essinsials of programming with C to the advanced topics in C programming to more modern language yes it is python and from here we learned more about frameworks and here i loved Flask.
+This is final project for CS50 Harvard online program 
+after nine weeks studying hard bitween learning the 
+essinsials of programming with C to the advanced 
+topics in C programming to more modern language 
+yes it is python and from here we learned more 
+about frameworks and here i loved Flask.
 
 ### Problem to solve
 
@@ -55,6 +60,10 @@ of corse CSS and Bootstrap to make the website looks joynfull.
    one already just login.
 - go to GoLive! and you will find buttons where you can
   control your camera and change settings.
+- You can go live stream here [GoProHero](https://www.example.com) 
+  stop the stream by **Stop** button you can start it again
+  by clicking on **Start**.
+- you can start recording your stream by clicking **Start Record**
 
  
 
