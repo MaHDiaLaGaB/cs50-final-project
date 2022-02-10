@@ -37,7 +37,8 @@ class VideoStreaming(object):
 
     # recording functions --------->
     def record_resolution(self, width, height):
-
+        if self.cap is None:
+            return
         self.cap.set(3, width)
         self.cap.set(4, height)
 
@@ -80,7 +81,8 @@ class VideoStreaming(object):
     # --- recording function ----
 
     def record(self):
-
+        if self.cap is None:
+            return
         while True:
             self.start_record().write(self.gen_frame()[1])
 

@@ -4,9 +4,9 @@
 
 ### My motivation
 
-This is final project for CS50 Harvard online program 
-after nine weeks studying hard bitween learning the 
-essinsials of programming with C to the advanced 
+This is the final project for CS50 Harvard online program 
+after nine weeks of studying hard between learning the 
+essentials of programming with C to the advanced 
 topics in C programming to more modern language 
 yes it is python and from here we learned more 
 about frameworks and here i loved Flask.
@@ -20,7 +20,7 @@ internet I found nothing, and here the idea
 comes up to me about how I can make a web app
  to automate and stream by GoPro 9 without cable.
 
-### What i learned
+### What I learned
 what I learned: manage and build a web app from the ground 
 with MVC (Model-View-Controller) structure,
 how to use blueprints, how to use more than one language
@@ -32,36 +32,36 @@ OpenCV library.
 
 ## Project Description
 
-It is Flask web app give you the power to control your 
-Go Pro Hereo camera without wire, just connect your camera
-via wifi and you can change camera settings, take photo,
-shot video even streamlive online, by just hitting a button
+It is a Flask web app that gives you the power to control your 
+Go Pro Hero camera without wire, just connect your camera
+via wifi and you can change camera settings, take photos,
+the shot video even stream live online, by just hitting a button
 from the website.
 
 I used python as the main Backend language with Flask
-as framwork, for the Frontend Javascript and JQuery library
-of corse CSS and Bootstrap to make the website looks joynfull.
+as a framework, for the Frontend Javascript and JQuery library
+of course, CSS and Bootstrap make the website looks joyful.
 
 
-## How to Use Go Live Pro
+## How to Use Go-Live Pro
 
 - Connect your GoPro Hero camera via wifi and you can do 
-   that in this steps:
+   that in these steps:
    1. Connect your camera to **GoPro Quik** application on
    your smartphone and pair it.
    2. In **GoPro Quik** hit **Control Your GoPro** button,
-   that will trigger the camera wifi to be open and be able
+   which will trigger the camera wifi to be open and be able
    to find it by your Laptop or Pc.
-   3. On your machine search for new networks avalible,
+   3. On your machine search for new networks available,
    you should find your **GoPro Camera** and you are good
    to go.
 - Open [GoProHero](https://www.example.com) 
-- Make an account by registring,if you have
-   one already just login.
+- Make an account by registering, if you have
+   one already just log in.
 - go to GoLive! and you will find buttons where you can
   control your camera and change settings.
 - You can go live stream here [GoProHero](https://www.example.com) 
-  stop the stream by **Stop** button you can start it again
+  stop the stream by the **Stop** button you can start it again
   by clicking on **Start**.
 - you can start recording your stream by clicking **Start Record**
 

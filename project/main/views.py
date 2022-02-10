@@ -8,9 +8,7 @@ main = Blueprint('main', __name__)
 
 
 CAMERA_CONTROL = {
-    'Start': "start",  # shutter on
-    'Stop': "stop",  # shutter off
-    'Photo': "photo",  # photo mode
+
     'Take Photo': "take_photo",
     'Video': "video",  # video mode
     'Download': "download"  # downlaod media
@@ -103,6 +101,7 @@ def videoPlayer():
         elif request.form.get('stop') == 'Stop':
             del cam
         elif request.form.get('record') == 'Record':
+            cam.start()
             cam.record()
             thread = Thread(target=cam.record)
             thread.start()

@@ -85,31 +85,33 @@ bady{
 .btn{
   margin: 4px;
   padding: auto;
-  width: 100px;
+  min-width: 100px;
+  width: auto;
 }
 
 fieldset {
-  border: 1px solid #222;
-  margin: 20px 0 0 0;
-  min-height: 90px;
-  line-height: 90px;
-  position: relative;
-  float: left;
-  margin-right: 20px;
-  padding: 20px;
+  border: 1px solid rgb(114, 114, 114);
+  border-radius: 5px;
+  max-width: 600px;
+  max-height: 250px;
+  
+  /* margin: 20px 0 0 0; */
+  /* min-height: 90px;
+  line-height: 90px; */
+  /* position: relative; */
+  /* float: left; */
+  /* margin-right: 20px; */
+  /* padding: 20px; */
 }
-/* fieldset h2 {
+fieldset h2 { 
   font-family: 'Lobster', cursive;
   font-weight: normal;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, .12);
+  color: #999;
+  text-shadow: 0 1px 0 rgba(36, 36, 36, 0.12);
   display: inline-block;
   margin: 0;
-  line-height: 1.5;
-  position: absolute;
-  top: -20px;
-  background: url('http://www.bradysammons.com/codepen/darkui/noise.png') repeat;
-  padding: 0 5px 0 10px;
-} */
+  
+} 
 
 
 
