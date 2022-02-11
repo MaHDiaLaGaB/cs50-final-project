@@ -59,8 +59,9 @@ class VideoStreaming(object):
         return VIDEO_TYPE['avi']
 
     def start_record(self):
-        self.out = cv2.VideoWriter('test-video.avi', self.get_video_type(
-        ), 25, (600, 400))
+        out = cv2.VideoWriter('test-video.avi', self.get_video_type(
+        ), 25, self.get_dimension('1080p'))
+        return out
 
     # recording functions end here ------>
 
@@ -72,19 +73,18 @@ class VideoStreaming(object):
         # self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
         # self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
         ret, frame = self.cap.read()
-        rec_frame = frame
+        if not ret:
+            print('there is an error')
         #frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         ret, buffer = cv2.imencode('image.jpg', frame)
         # print(frame.shape)
-        return (buffer.tobytes(), rec_frame)
+        return (buffer.tobytes(), frame)
 
     # --- recording function ----
 
-    def record(self):
-        if self.cap is None:
-            return
+    def record(self, out):
         while True:
-            self.start_record().write(self.gen_frame()[1])
+            out.write(self.gen_frame()[1])
 
     # --- controling camera functions ----
 

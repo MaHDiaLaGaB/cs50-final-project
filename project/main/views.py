@@ -102,7 +102,7 @@ def videoPlayer():
             del cam
         elif request.form.get('record') == 'Record':
             cam.start()
-            cam.record()
-            thread = Thread(target=cam.record)
+            thread = Thread(target=cam.record, args=(cam.start_record,))
             thread.start()
+            cam.record(cam.start_record())
     return render_template('videoPlayer.html')
