@@ -21,12 +21,15 @@ comes up to me about how I can make a web app
  to automate and stream by GoPro 9 without cable.
 
 ### What I learned
-what I learned: manage and build a web app from the ground 
-with MVC (Model-View-Controller) structure,
-how to use blueprints, how to use more than one language
-to build one app, Flask was really nice practice for me
-to use SQLalchemy, I learned the logic of HTTP requests and manipulating DOM, sending requests between 
-frontend and backend without refreshing the page using 
+- Manage and build a web app from the ground 
+with MVC (Model-View-Controller) structure.
+
+- How to use blueprints, how to use more than one language
+to build one app.
+- Flask was really nice practice for me
+to use SQLalchemy, blueprints, hash passwords, dealing with sessions.
+- I learned the logic of HTTP requests and manipulating DOM, sending requests between 
+**Frontend** and **Backend** without refreshing the page using 
 JQuery and Javascript and finally how to use
 OpenCV library.
 
@@ -64,14 +67,15 @@ of course, CSS and Bootstrap make the website looks joyful.
   stop the stream by the **Stop** button you can start it again
   by clicking on **Start**.
 - you can start recording your stream by clicking **Start Record**
+  
 
- 
+## Challanges i faced
 
-the idea is how to use my gopro camera without usb caple so after degging onling i found an repo in github for some guy named Konrad and i found really usefull API,
-the application does gave you the power to control your gopro camera without caple at all after u connect your camera via wifi, and you can stream online too.
+- the lack of refrences to use GoPro for livestream was my first
+issue and i kept taking the API examples as refrence.
 
+- as new to python language i had to learn during working on the project,
+  using Object Orinted programming was a real challenge for me,
+  with the issues and errors i faced it makes me more knowledgeable
+  how to fix this type of errors in the future.
 
-this is my first project ever in the world of programming i feel more comfy using python language so thats why i used Flask as framwark, to build flask webapp i need to make HTML templates to render the pages for the user and i used bootstrab starter template to make my life easer i edited using CSS, SQLite was my choice to manage database and SQlalchemy as rm, i used javascript and jquery to make fast contact between the frontend and the backend without loading the page, Opencv and Konrad Api was the nerve for this project.
-
-lack of refrenc was my biggiest challeng, using GoPro camera as source for the stream was really hard choice,
-the first issue i faced was
