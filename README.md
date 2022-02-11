@@ -69,13 +69,20 @@ of course, CSS and Bootstrap make the website looks joyful.
 - you can start recording your stream by clicking **Start Record**
   
 
-## Challanges i faced
+## Challenges I faced
 
-- the lack of refrences to use GoPro for livestream was my first
-issue and i kept taking the API examples as refrence.
+- the lack of references to use GoPro for Livestream was my first
+issue and I kept taking the API examples as reference.
 
-- as new to python language i had to learn during working on the project,
-  using Object Orinted programming was a real challenge for me,
-  with the issues and errors i faced it makes me more knowledgeable
-  how to fix this type of errors in the future.
+- as new to python language I had to learn during working on the project,
+  using Object Oriented programming was a real challenge for me,
+  the issues and errors I faced it makes me more knowledgeable
+  how to fix this type of error in the future.
 
+
+## Stack and libraries
+- **Frontend** HTML, CSS, Bootstrap, Javascript, JQeury
+- **Backend** Python, Flask, SQLite
+- **Libraries** Flask, Flask login,Flask-SQLAlchemy, 
+  bcrypt, openCV, 
+  goprocam, socket, os, time, numpy, python-dotenv.
