@@ -5,6 +5,7 @@ import socket
 from goprocam import GoProCamera, constants
 from collections import deque
 from moviepy.editor import ImageClip, concatenate_videoclips
+import shutil
 
 FRAME_DIMENSION = {
     "480p": (640, 480),
@@ -79,8 +80,10 @@ class VideoStreaming(object):
                          for img in self.buffer]
                 video = concatenate_videoclips(clips, method='compose')
                 now = datetime.datetime.now()
-                video.write_videofile(
-                    'video_{}.mp4'.format(str(now).replace(":", '')), fps=60)
+                file = 'video_{}.mp4'.format(str(now).replace(":", ''))
+                video.write_videofile(file, fps=60)
+                shutil.move(('{}'.format(file)),
+                            'project/videos/{}'.format(file))
                 self.buffer.clear()
 
                 print('record finished')

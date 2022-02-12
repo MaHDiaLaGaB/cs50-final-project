@@ -1,9 +1,6 @@
-from crypt import methods
-from urllib import response
-from flask import Blueprint, render_template, request, Response
+from flask import Blueprint, render_template, request, Response, send_file
 from flask_login import login_required
 from .live import VideoStreaming, stream
-from threading import Thread
 
 main = Blueprint('main', __name__)
 
@@ -114,3 +111,9 @@ def videoPlayer():
             pass
 
     return render_template('videoPlayer.html')
+
+
+@main.route('/download',)
+@login_required
+def download():
+    return send_file('project/videos/{}'.format(*'.mp4'), as_attachment=True)
