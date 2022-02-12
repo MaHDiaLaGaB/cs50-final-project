@@ -12,8 +12,8 @@ class Config(object):
     TESTING = False
     STATIC_FOLDER = 'static'
     TEMPLATES_FOLDER = 'templates'
-    SESSION_COOKIE_HTTPONLY = True
-    REMEMBER_COOKIE_HTTPONLY = True
+    SESSION_COOKIE_HTTPONLY = False
+    REMEMBER_COOKIE_HTTPONLY = False
 
 
 class ProdConfig(Config):

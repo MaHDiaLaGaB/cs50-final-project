@@ -1,4 +1,5 @@
 from crypt import methods
+from urllib import response
 from flask import Blueprint, render_template, request, Response
 from flask_login import login_required
 from .live import VideoStreaming, stream
@@ -83,7 +84,7 @@ def set_fov(value):
     cam.fov(value)
 
 
-@main.route('/videoPlayer/videofeed')
+@main.route('/videoPlayer/videofeed', methods=['GET', 'POST'])
 @login_required
 def videoFeed():
     cam = VideoStreaming()
@@ -96,13 +97,20 @@ def videoFeed():
 def videoPlayer():
     cam = VideoStreaming()
     if request.method == 'POST':
-        if request.form.get('start') == 'Start':
-            cam.start()
-        elif request.form.get('stop') == 'Stop':
-            del cam
-        elif request.form.get('record') == 'Record':
-            cam.start()
-            thread = Thread(target=cam.record, args=(cam.start_record,))
-            thread.start()
-            cam.record(cam.start_record())
+        # if request.form.get('start') == 'Start':  # i just updated
+        #     try:
+        #         del cam
+        #         cam.start()
+        #     except:
+        #         print('address is already in use')
+
+        # elif request.form.get('stop') == 'Stop':
+        #     try:
+        #         del cam
+        #     except:
+        #         print('no camera to stop')
+        if request.form.get('record') == 'Record':
+            # cam.record()
+            pass
+
     return render_template('videoPlayer.html')

@@ -1,8 +1,10 @@
 import cv2
-import os
 from time import sleep, time
+import datetime
 import socket
 from goprocam import GoProCamera, constants
+from collections import deque
+from moviepy.editor import ImageClip, concatenate_videoclips
 
 FRAME_DIMENSION = {
     "480p": (640, 480),
@@ -12,10 +14,12 @@ FRAME_DIMENSION = {
 }
 
 VIDEO_TYPE = {
-    'avi': cv2.VideoWriter_fourcc(*'XVID'),
+    'avi': cv2.VideoWriter_fourcc(*'DIVX'),
     # 'mp4': cv2.VideoWriter_fourcc(*'H264'),
     'mp4': cv2.VideoWriter_fourcc(*'XVID'),
 }
+
+VIDEONAME = 'gopro-record.mp4'
 
 
 class VideoStreaming(object):
@@ -23,7 +27,9 @@ class VideoStreaming(object):
     def __init__(self):
 
         self.go_pro = GoProCamera.GoPro()
+        self.buffer = deque(maxlen=600)  # 25fps * 5min
         self.cap = None
+        self.rec = True
 
     def start(self):
 
@@ -33,9 +39,12 @@ class VideoStreaming(object):
         self.go_pro.gpControlSet(constants.Stream.WINDOW_SIZE,
                                  constants.Stream.WindowSize.R720)
         self.go_pro.livestream('start')
+        self.buffer.clear()
         self.cap = cv2.VideoCapture("udp://10.5.5.9:8554", cv2.CAP_FFMPEG)
+        self.get_dimension('1080p')
 
     # recording functions --------->
+
     def record_resolution(self, width, height):
         if self.cap is None:
             return
@@ -52,39 +61,39 @@ class VideoStreaming(object):
         self.record_resolution(width, height)
         return width, height
 
-    def get_video_type(self):
-        ext = os.path.splitext('test-video.avi')
-        if ext in VIDEO_TYPE:
-            return VIDEO_TYPE[ext]
-        return VIDEO_TYPE['avi']
-
-    def start_record(self):
-        out = cv2.VideoWriter('test-video.avi', self.get_video_type(
-        ), 25, self.get_dimension('1080p'))
-        return out
-
     # recording functions end here ------>
 
+    # --- generating frames ---
     def gen_frame(self):
 
         if self.cap is None:
             print('you should call start first')
-
-        # self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
-        # self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
         ret, frame = self.cap.read()
-        if not ret:
-            print('there is an error')
-        #frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+        if self.rec:
+            #frame = cv2.bilateralFilter(frame, 9, 75, 75)
+            self.buffer.append(frame)
+            if len(self.buffer) == self.buffer.maxlen:
+                print('recording....')
+                clips = [ImageClip(img).set_duration(0.016)
+                         for img in self.buffer]
+                video = concatenate_videoclips(clips, method='compose')
+                now = datetime.datetime.now()
+                video.write_videofile(
+                    'video_{}.mp4'.format(str(now).replace(":", '')), fps=60)
+                self.buffer.clear()
+
+                print('record finished')
+
         ret, buffer = cv2.imencode('image.jpg', frame)
         # print(frame.shape)
         return (buffer.tobytes(), frame)
 
     # --- recording function ----
 
-    def record(self, out):
-        while True:
-            out.write(self.gen_frame()[1])
+    def record(self):
+
+        self.rec = True
 
     # --- controling camera functions ----
 
@@ -124,6 +133,10 @@ class VideoStreaming(object):
         try:
             self.go_pro.livestream('stop')
             self.cap.release()
+
+            for frame in self.buffer:
+                self.writer.write(frame)
+            self.buffer.clear()
         except:
             print('no stream to release')
         # cv2.destroyAllWindows()
