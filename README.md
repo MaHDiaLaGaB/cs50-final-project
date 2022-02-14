@@ -58,15 +58,17 @@ of course, CSS and Bootstrap make the website looks joyful.
    3. On your machine search for new networks available,
    you should find your **GoPro Camera** and you are good
    to go.
-- Open [GoProHero](https://www.example.com) 
+- Lunch Flask by running run.py on local server.
 - Make an account by registering, if you have
    one already just log in.
 - go to GoLive! and you will find buttons where you can
-  control your camera and change settings.
-- You can go live stream here [GoProHero](https://www.example.com) 
-  stop the stream by the **Stop** button you can start it again
-  by clicking on **Start**.
-- you can start recording your stream by clicking **Start Record**
+  control your camera and change settings, take photos and shoot videos.
+- You can go live stream by clicking on **You wanna Stream live? Click Here**,
+  the stream will start automaticlly and recording too.
+- you can downlaod the recorded video by clicking on 
+  **Download Your Record** this will happen just if the
+  app is hosted, if it's running locally on your machine
+  you will find the recorded video here **(project/videos)**.
   
 
 ## Challenges I faced
@@ -86,3 +88,11 @@ issue and I kept taking the API examples as reference.
 - **Libraries** Flask, Flask login,Flask-SQLAlchemy, 
   bcrypt, openCV, 
   goprocam, socket, os, time, numpy, python-dotenv.
+
+
+## future features
+- the abillty to Start and Stop the stream by clicking on start or stop buttons.
+- start recoding whenever you like by one click.
+- share the stream on Youtube and twich.
+- face ditiction.
+  
