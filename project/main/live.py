@@ -96,7 +96,7 @@ class VideoStreaming(object):
 
     def record(self):
 
-        self.rec = True
+        self.rec = False
 
     # --- controling camera functions ----
 
@@ -104,20 +104,16 @@ class VideoStreaming(object):
         self.go_pro.take_photo(2)
         sleep(0.5)
 
-    def shutter_on(self):
-        self.go_pro.shutter('1')
-        sleep(0.5)
+    # def shutter_on(self):
+    #     self.go_pro.shutter('1')
+    #     sleep(0.5)
 
-    def shutter_off(self):
-        self.go_pro.shutter('0')
-        sleep(0.5)
+    # def shutter_off(self):
+    #     self.go_pro.shutter('0')
+    #     sleep(0.5)
 
-    def photo_mode(self):
-        self.go_pro.mode(mode=constants.Mode.PhotoMode, submode='0')
-        sleep(0.5)
-
-    def video_mode(self):
-        self.go_pro.mode(mode=constants.Mode.VideoMode, submode='0')
+    def shoot_video(self):
+        self.go_pro.shoot_video(duration=25)
         sleep(0.5)
 
     def resolution(self, res):

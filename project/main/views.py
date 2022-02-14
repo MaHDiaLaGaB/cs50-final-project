@@ -8,7 +8,7 @@ main = Blueprint('main', __name__)
 CAMERA_CONTROL = {
 
     'Take Photo': "take_photo",
-    'Video': "video",  # video mode
+    'Shoot Video': "shoot_video",  # video mode
     'Download': "download"  # downlaod media
 }
 
@@ -31,7 +31,7 @@ CAMERA_LINCE = {
     'Wide': '0',
     'Narrow': '6',
     'SuperView': '3',
-    'Linear_HL': '8',  # horizon level
+    'Linear HL': '8',  # horizon level
 }
 
 
@@ -51,11 +51,11 @@ def live():
 def set_mode(value):
     cam = VideoStreaming()
     settings = dict(
-        photo=cam.photo_mode,
-        video=cam.video_mode,
+        # photo=cam.photo_mode,
+        shoot_video=cam.shoot_video,
         take_photo=cam.take_photo,
-        start=cam.shutter_on,
-        stop=cam.shutter_off
+        # start=cam.shutter_on,
+        # stop=cam.shutter_off
     )
     settings[value]()
 
@@ -107,8 +107,7 @@ def videoPlayer():
         #     except:
         #         print('no camera to stop')
         if request.form.get('record') == 'Record':
-            # cam.record()
-            pass
+            cam.record()
 
     return render_template('videoPlayer.html')
 
