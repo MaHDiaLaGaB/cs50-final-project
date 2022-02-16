@@ -6,9 +6,9 @@ from .extentions import db
 
 
 def create_app():
-    
+
     app = Flask(__name__)
-    
+
     app.config.from_object('config.DevConfig')
     db.init_app(app)
 
@@ -17,15 +17,17 @@ def create_app():
     login_manager.init_app(app)
 
     from .models import User
+
     @login_manager.user_loader
     def load_user(user_id):
         return User.query.get(int(user_id))
 
-
     # blueprint register
     from .main.views import main
     from .main.auth import auth
+    from .main.error import err
     app.register_blueprint(auth)
     app.register_blueprint(main)
-    
+    app.register_blueprint(err)
+
     return app

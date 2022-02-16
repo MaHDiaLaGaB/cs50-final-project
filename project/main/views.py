@@ -54,6 +54,7 @@ def set_mode(value):
         # photo=cam.photo_mode,
         shoot_video=cam.shoot_video,
         take_photo=cam.take_photo,
+        download=cam.download_all
         # start=cam.shutter_on,
         # stop=cam.shutter_off
     )

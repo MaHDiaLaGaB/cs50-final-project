@@ -125,6 +125,9 @@ class VideoStreaming(object):
     def fov(self, lince):
         self.go_pro.gpControlSet(param='121', value=lince)
 
+    def download_all(self):
+        self.go_pro.downloadAll()
+
     def __del__(self):
         if self.cap is None:
             print('no camera to stop')
