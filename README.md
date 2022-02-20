@@ -8,7 +8,8 @@ This is the final project for CS50 Harvard online program
 after nine weeks of studying hard between learning the 
 essentials of programming with C to the advanced 
 topics in C programming to more modern language 
-yes it is python and from here we learned more 
+.
+ It is python and from here we learned more 
 about frameworks and here i loved Flask.
 
 ### Problem to solve
@@ -36,9 +37,9 @@ OpenCV library.
 ## Project Description
 
 It is a Flask web app that gives you the power to control your 
-Go Pro Hero camera without wire, just connect your camera
+Go Pro Hero camera without a wire, just connect your camera
 via wifi and you can change camera settings, take photos,
-the shot video even stream live online, by just hitting a button
+shoot the video even stream live online, by just hitting a button
 from the website.
 
 I used python as the main Backend language with Flask
@@ -65,7 +66,7 @@ of course, CSS and Bootstrap make the website looks joyful.
   control your camera and change settings, take photos and shoot videos.
 - You can go live stream by clicking on **You wanna Stream live? Click Here**,
   the stream will start automaticlly and recording too.
-- you can downlaod the recorded video by clicking on 
+- you can download the recorded video by clicking on 
   **Download Your Record** this will happen just if the
   app is hosted, if it's running locally on your machine
   you will find the recorded video here **(project/videos)**.
@@ -78,7 +79,7 @@ issue and I kept taking the API examples as reference.
 
 - as new to python language I had to learn during working on the project,
   using Object Oriented programming was a real challenge for me,
-  the issues and errors I faced it makes me more knowledgeable
+  the issues and errors I faced made me more knowledgeable
   how to fix this type of error in the future.
 
 
