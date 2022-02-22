@@ -6,4 +6,14 @@
 
 {% block main %}
 <div class="anime" id="animContainer500"> </div>
+
+<script>
+    let animation = bodymovin.loadAnimation({
+        container: document.getElementById('animContainer500'),
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: 'https://assets9.lottiefiles.com/packages/lf20_gs9xrxtb.json' // lottie file path
+    });
+</script>
 {% endblock %}

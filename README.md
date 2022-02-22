@@ -1,5 +1,6 @@
 # Go Live Pro
 
+### Video Demo [ Project in action](https://youtu.be/z0QfeRAUaAU)
 ## WHY THIS PROJECT
 
 ### My motivation
@@ -39,7 +40,7 @@ OpenCV library.
 It is a Flask web app that gives you the power to control your 
 Go Pro Hero camera without a wire, just connect your camera
 via wifi and you can change camera settings, take photos,
-shoot the video even stream live online, by just hitting a button
+shoot the video even stream live and record the your stream by just hitting a button
 from the website.
 
 I used python as the main Backend language with Flask
@@ -65,11 +66,11 @@ of course, CSS and Bootstrap make the website looks joyful.
 - go to GoLive! and you will find buttons where you can
   control your camera and change settings, take photos and shoot videos.
 - You can go live stream by clicking on **You wanna Stream live? Click Here**,
-  the stream will start automaticlly and recording too.
+  the stream will start automaticlly and recording automaticlly too, you can change the recording time window from the this file [live.py](project/main/live.py) on line 79.
 - you can download the recorded video by clicking on 
   **Download Your Record** this will happen just if the
   app is hosted, if it's running locally on your machine
-  you will find the recorded video here **(project/videos)**.
+  you will find the recorded video here in [videos](project/videos) folder.
   
 
 ## Challenges I faced

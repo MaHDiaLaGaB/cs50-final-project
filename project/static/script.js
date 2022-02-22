@@ -156,26 +156,6 @@ function setFov(value) {
   //document.getElementById("ID").innerHTML = response;
 }
 
-let animation = bodymovin.loadAnimation({
-  container: document.getElementById('animContainer404'),
-  renderer: 'svg',
-  loop: true,
-  autoplay: true,
-  path: 'https://assets5.lottiefiles.com/packages/lf20_49yefrcy.json' // lottie file path
-})
 
-let animation = bodymovin.loadAnimation({
-  container: document.getElementById('animContainer403'),
-  renderer: 'svg',
-  loop: true,
-  autoplay: true,
-  path: 'https://assets4.lottiefiles.com/packages/lf20_r0tkeuzo.json' // lottie file path
-})
 
-let animation = bodymovin.loadAnimation({
-  container: document.getElementById('animContainer500'),
-  renderer: 'svg',
-  loop: true,
-  autoplay: true,
-  path: 'https://assets9.lottiefiles.com/packages/lf20_gs9xrxtb.json' // lottie file path
-})
+
